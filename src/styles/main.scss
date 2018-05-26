@@ -1,5 +1,103 @@
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/bootstrap/scss/mixins/_breakpoints.scss';
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
 
-#foobar {
-  color: red;
+$DARK_RED: #723419;
+$LIGHT_BG: #f8e9cc;
+
+body {
+  font-family: 'Merriweather', serif;
+}
+
+body {
+  background: url('../images/bg-red.jpg') center -32px;
+}
+
+#topbar {
+  padding-bottom: 0;
+  .navbar-toggler {
+    background: $LIGHT_BG;
+    color: black;
+    border-radius: 2px 2px 0 0;
+    margin-right: 10px;
+    outline: none;
+  }
+  @include media-breakpoint-down(sm) {
+    .navbar-brand {
+      line-height: 0;
+    }
+    .navbar-collapse {
+      background: rgba(black, 0.5);
+      padding: 1rem;
+      border-radius: 2px 2px 0 0;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .navbar-brand {
+      display: none;
+    }
+    .nav-item {
+      &.active .nav-link {
+        border-bottom-color: $LIGHT_BG;
+        border-image: url('../images/bg-w.jpg') 30 round;
+        font-size: 1.5rem;
+        margin-top: -0.3rem;
+      }
+      .nav-link {
+        border-bottom: 0.3rem solid transparent;
+        padding-bottom: 0.3rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.flag {
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0, 0.9);
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.table th, .table td {
+  border-top: 1px solid lighten($DARK_RED, 20%);
+}
+
+.jumbotron {
+  background: url('../images/cover.jpg') no-repeat center center;
+  background-size: cover;
+  margin-bottom: 10px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.9);
+  color: white;
+  h1 {
+    font-weight: 700;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(black, 0.9);
+    letter-spacing: 0.2rem;
+  }
+  .lead {
+    text-shadow: 2px 2px 4px rgba(black, 0.9);
+    font-size: 1.5rem;
+  }
+  //margin-bottom: 0;
+}
+
+iframe.bordered {
+  border: 1px solid darken($LIGHT_BG, 10%) !important;
+}
+
+.mainContent {
+  background: url('../images/bg-w.jpg') $LIGHT_BG;
+  margin-bottom: 40px;
+  padding: 20px;
+  box-shadow: 0 0 10px 2px rgba(black, 0.5);
+  border-radius: 2px;
+
+  a {
+    color: #BA4A19;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    color: #723419;
+  }
 }
