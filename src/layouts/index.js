@@ -15,6 +15,7 @@ const Layout = (props) => {
   const { children, data, location } = props;
   const {siteMetadata} = data.site;
   const language = extractLanguageFromLocation(location);
+  console.log(data.headerImage);
   return (
     <React.Fragment>
       <Helmet
@@ -27,7 +28,7 @@ const Layout = (props) => {
       >
        <meta name="og:image" content={siteMetadata.baseUrl + cover} />
       </Helmet>
-      <Jumbotron title='Sinkkala' />
+      <Jumbotron title='Sinkkala' headerImage={data.headerImage} />
       <Navbar
         siteTitle={siteMetadata.title}
         language={language}
@@ -47,7 +48,12 @@ Layout.propTypes = {
 export default Layout
 
 export const query = graphql`
-  query SiteTitleQuery {
+  query MainQuery {
+    headerImage: imageSharp(id: { regex: "/cover/" }) {
+      sizes(maxWidth: 1920) {
+        ...GatsbyImageSharpSizes
+      }
+    }
     site {
       siteMetadata {
         title

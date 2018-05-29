@@ -49,12 +49,13 @@ const FrontPage = ({location}) => {
       <div className="row">
         <div className="col-md-1"/>
         <div className="col-md-10">
-          <div class="embed-responsive embed-responsive-16by9">
+          <div className="embed-responsive embed-responsive-16by9">
             <iframe
               className="embed-responsive-item bordered"
               src="https://www.youtube.com/embed/mlXhfW7d96k?rel=0&amp;showinfo=0"
-              frameborder="0"
-              allow="autoplay; encrypted-media" allowfullscreen
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
             />
           </div>
         </div>
