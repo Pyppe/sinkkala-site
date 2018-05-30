@@ -21,6 +21,10 @@ const i18n = {
     fi: 'Osoite',
     en: 'Address',
   },
+  socialMedia: {
+    fi: 'Sosiaalinen media',
+    en: 'Social media',
+  },
 };
 
 const ContactPage = ({location}) => {
@@ -45,6 +49,14 @@ const ContactPage = ({location}) => {
             <tr>
               <th>{i18n.address[language]}</th>
               <td>Sinkkalantie 29, 06500 Porvoo</td>
+            </tr>
+            <tr>
+              <th>{i18n.socialMedia[language]}</th>
+              <td>
+                <a href="https://www.facebook.com/Sinkkala-Bed-Breakfast-458129604293038/" target="_blank">
+                  Facebook <i className="fa fa-facebook-square" />
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>

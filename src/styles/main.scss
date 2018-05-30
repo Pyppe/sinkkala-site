@@ -1,6 +1,6 @@
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../../node_modules/bootstrap/scss/mixins/_breakpoints.scss';
-@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700');
 
 $DARK_RED: #723419;
 $LIGHT_BG: #f8e9cc;
@@ -52,6 +52,55 @@ body {
   }
 }
 
+.row.thumbnails {
+  margin-bottom: 10px;
+  .gatsby-image-outer-wrapper {
+    //padding: 2px;
+    //background: lighten($DARK_RED, 20%);
+    //border-radius: 4px;
+    border: 1px solid darken($LIGHT_BG, 10%);
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 20px;
+    }
+  }
+  a {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    &:hover {
+      .caption {
+        opacity: 1;
+      }
+    }
+  }
+  .caption {
+    position: absolute;
+    bottom: 1px;
+    left: 1px;
+    right: 1px;
+    background: rgba(black, 0.6);
+    padding: 5px;
+    color: white;
+    opacity: 0;
+    transition: all 0.5s ease;
+    font-weight: 300;
+  }
+  .gatsby-image-wrapper {
+    box-shadow: 0px 0px 2px rgba($DARK_RED, 0.9);
+    //border-radius: 4px;
+
+    > img {
+      transition: all 0.5s ease;
+    }
+
+    &:hover {
+      > img {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
 .flag {
   box-shadow: 0px 0px 5px 0px rgba(0,0,0, 0.9);
   &:hover {
@@ -87,7 +136,6 @@ iframe.bordered {
 
 .mainContent {
   background: url('../images/bg-w.jpg') $LIGHT_BG;
-  margin-bottom: 40px;
   padding: 20px;
   box-shadow: 0 0 10px 2px rgba(black, 0.5);
   border-radius: 2px;
@@ -98,5 +146,21 @@ iframe.bordered {
 
   h1,h2,h3,h4,h5,h6 {
     color: #723419;
+  }
+}
+
+.footer {
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 40px;
+
+  > div {
+    @include media-breakpoint-up(md) {
+      display: inline-block;
+      padding-right: 40px;
+    }
+    a {
+      color: white;
+    }
   }
 }

@@ -6,6 +6,7 @@ import Helmet from 'react-helmet'
 import 'font-awesome/css/font-awesome.min.css'
 import '../styles/main.scss'
 
+import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Jumbotron from '../components/Jumbotron'
 import {extractLanguageFromLocation} from '../utils'
@@ -15,7 +16,7 @@ const Layout = (props) => {
   const { children, data, location } = props;
   const {siteMetadata} = data.site;
   const language = extractLanguageFromLocation(location);
-  console.log(data.headerImage);
+  console.log('data in index.js template: %o', data);
   return (
     <React.Fragment>
       <Helmet
@@ -37,6 +38,7 @@ const Layout = (props) => {
       <div className="container mainContent">
         {children()}
       </div>
+      <Footer language={language} />
     </React.Fragment>
   );
 };
@@ -52,6 +54,15 @@ export const query = graphql`
     headerImage: imageSharp(id: { regex: "/cover/" }) {
       sizes(maxWidth: 1920) {
         ...GatsbyImageSharpSizes
+      }
+    }
+    photos: allImageSharp(filter: { id: { regex: "/photos/" } }) {
+      edges {
+        node {
+          sizes(maxWidth: 600) {
+            ...GatsbyImageSharpSizes
+          }
+        }
       }
     }
     site {
