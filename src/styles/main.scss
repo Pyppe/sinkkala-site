@@ -52,8 +52,16 @@ body {
   }
 }
 
+#lightboxBackdrop {
+  button {
+    outline: none;
+  }
+}
 .row.thumbnails {
   margin-bottom: 10px;
+  > div {
+    margin-bottom: 2rem;
+  }
   .gatsby-image-outer-wrapper {
     //padding: 2px;
     //background: lighten($DARK_RED, 20%);
@@ -152,12 +160,20 @@ iframe.bordered {
 .footer {
   color: white;
   margin-top: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 
-  > div {
-    @include media-breakpoint-up(md) {
+  .entry {
+    @include media-breakpoint-up(lg) {
       display: inline-block;
       padding-right: 40px;
+    }
+    @include media-breakpoint-down(md) {
+      width: 50%;
+      float: left;
+    }
+    @include media-breakpoint-down(sm) {
+      width: inherit;
+      float: none;
     }
     a {
       color: white;

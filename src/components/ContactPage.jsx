@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import {extractLanguageFromLocation} from '../utils'
+import {emailAddress, extractLanguageFromLocation, facebookPageUrl, streetAddress} from '../utils'
+import EmailAddressLink from './EmailAddressLink'
+import PhoneNumberLink from './PhoneNumberLink'
 
 const i18n = {
   intro: {
@@ -40,20 +42,20 @@ const ContactPage = ({location}) => {
           <tbody>
             <tr>
               <th>{i18n.phone[language]}</th>
-              <td>+358 40 821 7021</td>
+              <td><PhoneNumberLink/></td>
             </tr>
             <tr>
               <th>{i18n.email[language]}</th>
-              <td><a href="mailto:sinkkala@sinkkala.fi">sinkkala@sinkkala.fi</a></td>
+              <td><EmailAddressLink /></td>
             </tr>
             <tr>
               <th>{i18n.address[language]}</th>
-              <td>Sinkkalantie 29, 06500 Porvoo</td>
+              <td>{streetAddress}</td>
             </tr>
             <tr>
               <th>{i18n.socialMedia[language]}</th>
               <td>
-                <a href="https://www.facebook.com/Sinkkala-Bed-Breakfast-458129604293038/" target="_blank">
+                <a href={facebookPageUrl} target="_blank">
                   Facebook <i className="fa fa-facebook-square" />
                 </a>
               </td>

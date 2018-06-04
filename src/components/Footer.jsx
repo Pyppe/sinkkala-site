@@ -1,23 +1,22 @@
 import React from 'react'
+import PhoneNumberLink from './PhoneNumberLink';
+import { streetAddress, facebookPageUrl } from '../utils';
+import EmailAddressLink from './EmailAddressLink';
 
+const Entry = ({icon, children}) => (
+  <div className="entry">
+    <i className={`fa fa-lg ${icon}`} /> {children}
+  </div>
+);
 
-const Footer = ({ code, active }) => {
-  const props = {height: active ? 20 : 16, className: "flag"};
-  return (
-    <div className="container footer">
-      <div>
-        <i className="fa fa-lg fa-map-marker" /> Sinkkalantie 29, 06500 Porvoo
-      </div>
-      <div>
-        <i className="fa fa-phone" /> <a href="tel:+358 40 821 7021">+358 40 821 7021</a>
-      </div>
-      <div>
-        <a href="https://www.facebook.com/Sinkkala-Bed-Breakfast-458129604293038/" target="_blank">
-          <i className="fa fa-lg fa-facebook-square" /> Facebook
-        </a>
-      </div>
-    </div>
-  );
-};
+const Footer = ({ code, active }) => (
+  <div className="container footer">
+    <Entry icon="fa-map-marker">{streetAddress}</Entry>
+    <Entry icon="fa-phone"><PhoneNumberLink/></Entry>
+    <Entry icon="fa-envelope"><EmailAddressLink/></Entry>
+    <Entry icon="fa-facebook-square"><a href={facebookPageUrl} target="_blank">Facebook</a></Entry>
+    <div style={{clear:'both', marginBottom: '40px'}}/>
+  </div>
+);
 
 export default Footer;
