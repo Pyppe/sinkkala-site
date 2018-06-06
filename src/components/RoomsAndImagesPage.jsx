@@ -5,11 +5,11 @@ import Lightbox from 'react-images'
 import {extractLanguageFromLocation} from '../utils'
 
 const i18n = {
-  firstText: {
+  textA: {
     fi: `
       <p>
         Sinkkalassa on ainoastaan neljä makuuhuonetta, joten talossa vallitsee rauhallinen ja kodikas tunnelma.
-        Jokainen huone kertoo esineillään omaa tarinaansa perheen historiasta . Moni esineistä on matkannut
+        Jokainen huone kertoo esineillään omaa tarinaansa perheen historiasta. Moni esineistä on matkannut
         pitkän ja vaivalloisenkin matkan päätyäkseen lopulta Sinkkalaan, Porvooseen. Juuri nämä esineet luovat
         taloon oman tunnelmansa.
       </p>
@@ -41,7 +41,7 @@ const i18n = {
       </p>
     `
   },
-  secondText: {
+  textB: {
     fi: `
       <p>
         Yläkerran Peräkamarin seiniä koristavat talon entisen emännän hiihtopalkintoina saamat taulut ja peili.
@@ -49,18 +49,17 @@ const i18n = {
         vuodesohvasta. Yhteisenä oleskelutilana on yläkerrassa aula, missä voi lueskella tai katsella tv:tä
         puuseppäisännän rakentamissa nojatuoleissa.
       </p>
+    `,
+    en: '',
+  },
+  textC: {
+    fi: `
       <p>
         Keittiö on kaikkien majoittujien käytössä ja sieltä löytyvät tarvittavat välineet omatoimiseen
         ruuanlaittoon. Halutessanne voitte tilata aamiaistarvikkeet valmiiksi ja nauttia ne, silloin kun teille
         parhaiten sopii. Tuvan ison pöydän ääreen mahtuu ruokailemaan suurempikin seurue. Valoisan
         verannan pöydän ääressä aamiainen maistuu hyvältä seuratessa elämää pihapuissa ja ympäröivillä
         pelloilla.
-      </p>
-      <p>
-        Piha on iso, mutta turvallinen. Ikivanhojen puiden varjossa voi istuskella grillaten tai muuten vaan
-        nautiskellen maalaismaisemasta. Pihapiirissä sijaitseva perinteinen, vaatimaton sauna lämpiää
-        sopimuksen mukaan. Asukkaiden käytössä on myös polkupyöriä ja pihaleikkivälineitä. Talvisin
-        yhdyslatu kulkee kylän hiihtoreiteille melkeinpä rappusten edestä, tietenkin lumitilanteesta riippuen.
       </p>
     `,
     en: `
@@ -69,6 +68,18 @@ const i18n = {
         utensils and tableware are available. You may enjoy your meal either in the romantic cabin
         or at the sunny porch. The yard grill can also be used by the guests.
       </p>
+    `
+  },
+  textD: {
+    fi: `
+      <p>
+        Piha on iso, mutta turvallinen. Ikivanhojen puiden varjossa voi istuskella grillaten tai muuten vaan
+        nautiskellen maalaismaisemasta. Pihapiirissä sijaitseva perinteinen, vaatimaton sauna lämpiää
+        sopimuksen mukaan. Asukkaiden käytössä on myös polkupyöriä ja pihaleikkivälineitä. Talvisin
+        yhdyslatu kulkee kylän hiihtoreiteille melkeinpä rappusten edestä, tietenkin lumitilanteesta riippuen.
+      </p>
+    `,
+    en: `
       <p>
         The yard is spacious, and incorporates a small sauna. The usage can be agreed in advance.
         In addition, guests may use the household bicycles. In the winter,
@@ -81,11 +92,11 @@ const i18n = {
 
 const ImageThumbnails = ({images, onClickImage}) => (
   <div className="row thumbnails">
-    {_.map(images, (img, idx) => {
+    {_.map(images, (img) => {
       const caption = determineImageCaption(img);
       return (
-        <div className="col-lg-4 col-md-6" key={idx}>
-          <a onClick={() => onClickImage(idx)}>
+        <div className="col-lg-4 col-md-6" key={img.src}>
+          <a onClick={() => onClickImage(img.index)}>
             <Image
               sizes={img}
               imgStyle={{transition: null}}
@@ -112,43 +123,58 @@ const determineImageCaption = ({src}) => {
 class RoomsAndImagesPage extends React.Component {
   constructor(props) {
     super(props);
+    const images = _.map(
+      _.sortBy(
+        _.map(this.props.data.photos.edges, n => {
+          const img = n.node.childImageSharp.fullSizes;
+          const group = _.last(img.src.split('/')).split('.')[1];
+          return {
+            ...img,
+            group
+          };
+        }),
+        'src'
+      ),
+      (x, index) => ({...x, index})
+    );
     this.state = {
       isLightboxOpen: false,
       currentImageIndex: 0,
+      images,
     };
   }
   render() {
     const language = extractLanguageFromLocation(this.props.location);
     const photoNodes = this.props.data.photos.edges;
-    const fullSizes = _.sortBy(_.map(photoNodes, 'node.childImageSharp.fullSizes'), 'src');
-    const lightboxImages = _.map(fullSizes, n => ({
-      ...n,
-      srcSet: n.srcSet.split(',').map(_.trim),
-      caption: determineImageCaption(n),
-    }));
+    const {images} = this.state;
 
-    const firstSetOfImages = _.take(fullSizes, 9);
-    const secondSetOfImages = _.drop(fullSizes, 9);
-
-    return (
+    const BlockOfTextAndImages = ({group}) => (
       <React.Fragment>
-        <div dangerouslySetInnerHTML={{'__html': i18n.firstText[language]}} />
+        <div dangerouslySetInnerHTML={{'__html': i18n[`text${group}`][language]}} />
         <ImageThumbnails
-          images={firstSetOfImages}
+          images={_.filter(images, {group})}
           onClickImage={currentImageIndex => {
             this.setState({currentImageIndex, isLightboxOpen: true});
           }}
         />
-        <div dangerouslySetInnerHTML={{'__html': i18n.secondText[language]}} />
-        <ImageThumbnails
-          images={secondSetOfImages}
-          onClickImage={idx => {
-            this.setState({currentImageIndex: idx+9, isLightboxOpen: true});
-          }}
-        />
+      </React.Fragment>
+    );
+
+    return (
+      <React.Fragment>
+        <BlockOfTextAndImages group='A' />
+        <BlockOfTextAndImages group='B' />
+        <BlockOfTextAndImages group='C' />
+        <BlockOfTextAndImages group='D' />
 
         <Lightbox
-          images={lightboxImages}
+          images={
+            _.map(images, img => ({
+              ...img,
+              srcSet: _.map(img.srcSet.split(','), _.trim),
+              caption: determineImageCaption(img),
+            }))
+          }
           isOpen={this.state.isLightboxOpen}
           currentImage={this.state.currentImageIndex}
           onClickPrev={() => {
