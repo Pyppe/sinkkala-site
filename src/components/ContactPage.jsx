@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import {emailAddress, extractLanguageFromLocation, facebookPageUrl, streetAddress} from '../utils'
 import EmailAddressLink from './EmailAddressLink'
+import ExtLink from './ExtLink';
 import PhoneNumberLink from './PhoneNumberLink'
 
 const i18n = {
@@ -55,9 +56,9 @@ const ContactPage = ({location}) => {
             <tr>
               <th>{i18n.socialMedia[language]}</th>
               <td>
-                <a href={facebookPageUrl} target="_blank">
+                <ExtLink href={facebookPageUrl}>
                   Facebook <i className="fa fa-facebook-square" />
-                </a>
+                </ExtLink>
               </td>
             </tr>
           </tbody>
