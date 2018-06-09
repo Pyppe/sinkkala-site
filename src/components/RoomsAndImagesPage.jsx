@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import Image from 'gatsby-image'
 import Lightbox from 'react-images'
 import {extractLanguageFromLocation} from '../utils'
@@ -107,22 +106,13 @@ const i18n = {
   }
 };
 
-const ImageThumbnails = ({images, onClickImage}) => (
+const ImageThumbnails = ({images, onClickImage, language}) => (
   <div className="row thumbnails">
     {_.map(images, (img) => {
-      const caption = determineImageCaption(img);
-      const colSizes = (() => {
-        const c = _.size(images);
-        if (c < 3) {
-          return [4, 6];
-        } else if (c < 5) {
-          return [3, 4];
-        } else {
-          return [2, 3];
-        }
-      })();
+      const caption = determineImageCaption(img, language);
+      const colSize = (_.size(images) % 4 === 0) ? 3 : 4;
       return (
-        <div className={`col-lg-${colSizes[0]} col-sm-${colSizes[1]}`} key={img.src}>
+        <div className={`col-lg-${colSize} col-sm-6`} key={img.src}>
           <a onClick={() => onClickImage(img.index)}>
             <Image
               sizes={img}
@@ -138,13 +128,23 @@ const ImageThumbnails = ({images, onClickImage}) => (
   </div>
 );
 
-const determineImageCaption = ({src}) => {
+const determineImageCaption = ({src}, language) => {
   const name = _.head(_.last(src.split('/')).split('-'));
-  switch (name) {
-    case 'Sinkkala_01':
-      return 'Tässä esimerkki kuvan otsikosta.';
-  }
-  return undefined;
+  const names = {
+    'sinkkala.A.01': ['Alakerran pikkukamari', 'Little chamber downstairs'],
+    'sinkkala.A.02': ['Alakerran isokamari', 'Larger bedroom downstairs'],
+    'sinkkala.B.01': ['Yläkerran oleskelutila', 'Common lounge area upstairs'],
+    'sinkkala.C.01': ['Keittiö', 'Kitchen'],
+    'sinkkala.C.02': ['Tupa', 'Cabin'],
+    'sinkkala.C.03': ['Veranta', 'Sunny porch'],
+    'sinkkala.C.04': ['Alakerran vessa', 'Bathroom downstairs'],
+    'sinkkala.C.05': ['Kellarin vessa', 'Bathroom in the basement'],
+    'sinkkala.D.01': ['Sinkkalan iso piha', `Sinkkala's spacious yard`],
+    'sinkkala.D.02': ['Hiekkalaatikko leikkejä varten', 'Sandbox for children to play'],
+    'sinkkala.D.03': ['Ulkosauna', 'Outside sauna'],
+    'sinkkala.D.04': ['Saunan pukuhuone', 'Dressing room'],
+  };
+  return _.get(_.get(names, name, []), language === 'fi' ? 0 : 1);
 };
 
 class RoomsAndImagesPage extends React.Component {
@@ -172,7 +172,6 @@ class RoomsAndImagesPage extends React.Component {
   }
   render() {
     const language = extractLanguageFromLocation(this.props.location);
-    const photoNodes = this.props.data.photos.edges;
     const {images} = this.state;
 
     const BlockOfTextAndImages = ({group}) => (
@@ -183,6 +182,7 @@ class RoomsAndImagesPage extends React.Component {
           onClickImage={currentImageIndex => {
             this.setState({currentImageIndex, isLightboxOpen: true});
           }}
+          language={language}
         />
       </React.Fragment>
     );
@@ -199,7 +199,7 @@ class RoomsAndImagesPage extends React.Component {
             _.map(images, img => ({
               ...img,
               srcSet: _.map(img.srcSet.split(','), _.trim),
-              caption: determineImageCaption(img),
+              caption: determineImageCaption(img, language),
             }))
           }
           isOpen={this.state.isLightboxOpen}
