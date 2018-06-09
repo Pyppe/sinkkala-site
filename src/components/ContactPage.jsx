@@ -68,6 +68,7 @@ const ContactPage = ({location}) => {
         <iframe
           className="bordered"
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d125868.86644490593!2d25.45051031553027!3d60.46665717337106!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x12f3173399a03240!2sBed+and+Breakfast+Sinkkala!5e0!3m2!1sen!2sfi!4v1527352794481"
+          title="Sinkkala in Google Maps"
           allowFullScreen
           style={{height: 400, width: '100%'}}
         />

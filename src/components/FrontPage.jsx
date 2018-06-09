@@ -78,6 +78,7 @@ const FrontPage = ({location}) => {
               src="https://www.youtube.com/embed/mlXhfW7d96k?rel=0&amp;showinfo=0"
               frameBorder="0"
               allow="autoplay; encrypted-media"
+              title="Sinkkala BB"
               allowFullScreen
             />
           </div>

@@ -75,6 +75,7 @@ class Navbar extends React.Component {
           <button
             className="navbar-toggler"
             type="button"
+            aria-label="Toggle navigation"
             onClick={() => {
               this.setState({isOpen: !this.state.isOpen});
             }}

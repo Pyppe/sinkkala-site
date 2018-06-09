@@ -16,18 +16,14 @@ const Layout = (props) => {
   const { children, data, location } = props;
   const {siteMetadata} = data.site;
   const language = extractLanguageFromLocation(location);
-  console.log('data in index.js template: %o', data);
+  //console.log('data in index.js template: %o', data);
   return (
     <React.Fragment>
-      <Helmet
-        htmlAttributes={{lang: language}}
-        title={siteMetadata.title}
-        meta={[
-          { name: 'description', content: 'Bed and Breakfast, near Porvoo' },
-          { name: 'keywords', content: 'bed and breakfast, porvoo' }
-        ]}
-      >
-       <meta name="og:image" content={siteMetadata.baseUrl + cover} />
+      <Helmet htmlAttributes={{lang: language}}>
+        <title>{siteMetadata.title}</title>
+        <meta name="description" content="Bed and Breakfast, near Porvoo" />
+        <meta name="keywords" content="bed and breakfast, porvoo, sinkkala" />
+        <meta name="og:image" content={siteMetadata.baseUrl + cover} />
       </Helmet>
       <Jumbotron title='Sinkkala' headerImage={data.headerImage} />
       <Navbar
