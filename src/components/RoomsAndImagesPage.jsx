@@ -23,17 +23,17 @@ const i18n = {
     `,
     en: `
       <p>
-        Bed &amp; Breakfast Sinkkala has only four separate bed rooms, making the atmosphere peaceful and cosy.
-        The interior of the house is telling about the history of families once lived there.
-        Many of the household items have traveled a long way to finally end up in Sinkkala, Porvoo.
-        These items create an unique atmosphere, which has been liked very much by many of our guests.
+        Bed &amp; Breakfast Sinkkala has only four separate bedrooms, making the atmosphere peaceful and cosy.
+        The interior of the house tells stories of the people who once lived there.
+        Many of the household items have travelled a long way to finally end up in Sinkkala, Porvoo.
+        These items create an unique atmosphere, which has been well-liked by many of our guests.
       </p>
-      <p>Two of the bed rooms are downstairs, and two upstairs.</p>
+      <p>Two of the bedrooms are downstairs, and two upstairs.</p>
       <h4>Chambers downstairs</h4>
       <p>
         Downstairs in the small chamber we have Grandma’s bridal bureau, old photographs, wall clock,
         and an oven creating a warm, fuzzy feeling of the good ol’ times.
-        The larger bedroom includes two separate normal-sized beds, and one larger bed (120cm of diameter),
+        The larger bedroom includes two separate normal-sized beds, and one larger bed (width 120cm),
         having space for a family of four.
       </p>
     `
@@ -71,7 +71,7 @@ const i18n = {
       </p>
     `,
     en: `
-      <h4>Downstair kitchen and sunny porch</h4>
+      <h4>Kitchen downstairs and sunny porch</h4>
       <p>
         Breakfast items can be found from the kitchen,
         where all the necessary utensils and tableware are available for preparing a meal.
@@ -133,7 +133,9 @@ const determineImageCaption = ({src}, language) => {
   const names = {
     'sinkkala.A.01': ['Alakerran pikkukamari', 'Little chamber downstairs'],
     'sinkkala.A.02': ['Alakerran isokamari', 'Larger bedroom downstairs'],
-    'sinkkala.B.01': ['Yläkerran oleskelutila', 'Common lounge area upstairs'],
+    'sinkkala.B.01': ['Yläkerran peräkamari', 'Back chamber upstairs'],
+    'sinkkala.B.02': ['Yläkerran tyttöjen huone', 'The girls’ chamber upstairs'],
+    'sinkkala.B.03': ['Yläkerran oleskelutila', 'Common lounge area upstairs'],
     'sinkkala.C.01': ['Keittiö', 'Kitchen'],
     'sinkkala.C.02': ['Tupa', 'Cabin'],
     'sinkkala.C.03': ['Veranta', 'Sunny porch'],

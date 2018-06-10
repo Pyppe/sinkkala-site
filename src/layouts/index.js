@@ -22,7 +22,7 @@ const Layout = (props) => {
       <Helmet htmlAttributes={{lang: language}}>
         <title>{siteMetadata.title}</title>
         <meta name="description" content="Bed and Breakfast, near Porvoo" />
-        <meta name="keywords" content="bed and breakfast, porvoo, sinkkala" />
+        <meta name="keywords" content="porvoo, sinkkala, bed and breakfast, accommodation, hostel, majoitus, mökki" />
         <meta name="og:image" content={siteMetadata.baseUrl + cover} />
       </Helmet>
       <Jumbotron title='Sinkkala' />
