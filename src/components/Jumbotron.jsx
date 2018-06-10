@@ -1,5 +1,4 @@
 import React from 'react'
-import Img from 'gatsby-image'
 
 const Jumbotron = ({title}) => (
   <div className="jumbotron jumbotron-fluid">

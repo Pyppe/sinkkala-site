@@ -25,7 +25,7 @@ const Layout = (props) => {
         <meta name="keywords" content="bed and breakfast, porvoo, sinkkala" />
         <meta name="og:image" content={siteMetadata.baseUrl + cover} />
       </Helmet>
-      <Jumbotron title='Sinkkala' headerImage={data.headerImage} />
+      <Jumbotron title='Sinkkala' />
       <Navbar
         siteTitle={siteMetadata.title}
         language={language}
@@ -47,11 +47,6 @@ export default Layout
 
 export const query = graphql`
   query MainQuery {
-    headerImage: imageSharp(id: { regex: "/cover/" }) {
-      sizes(maxWidth: 1920) {
-        ...GatsbyImageSharpSizes
-      }
-    }
     photos: allImageSharp(filter: { id: { regex: "/photos/" } }) {
       edges {
         node {
