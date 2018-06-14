@@ -139,8 +139,8 @@ const IMAGE_CAPTIONS = {
   'C.keittio': ['Keittiö', 'Kitchen'],
   'C.tupa': ['Tupa', 'Cabin'],
   'C.veranta': ['Veranta', 'Sunny porch'],
-  'C.alakerran_vessa': ['Alakerran vessa', 'Bathroom downstairs'],
-  'C.kellarin_vessa': ['Kellarin vessa', 'Bathroom in the basement'],
+  'C.alakerran_wc': ['Alakerran WC', 'Bathroom downstairs'],
+  'C.kellarin_wc': ['Kellarin WC', 'Bathroom in the basement'],
   // D
   'D.etupiha': ['Sinkkalan iso piha', `Sinkkala's spacious yard`],
   'D.grilli': ['Grillipaikka', `Outside grill`],

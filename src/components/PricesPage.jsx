@@ -34,7 +34,7 @@ const PricesPage = ({location}) => {
             </tr>
             <tr>
               <th>{i18n.roomForFamily[language]}</th>
-              <td>95 €</td>
+              <td>85 - 95 €</td>
             </tr>
           </tbody>
         </table>
@@ -43,7 +43,7 @@ const PricesPage = ({location}) => {
         <ul>
           {language === 'fi' ?
             <React.Fragment>
-              <li>Majoituksen hintaan sisältyvät liinavaatteet, pyyhkeet sekä langaton Internet-yhteys.</li>
+              <li>Majoituksen hintaan sisältyvät liinavaatteet, pyyhkeet, langaton Internet-yhteys sekä kahvi ja tee.</li>
               <li>Tarvikkeet omatoimiseen aamiaiseen 7 €/hlö.</li>
               <li>Varaa majoitus ottamalla meihin yhteyttä. Yhteystiedot löydät <Link to="/fi/yhteystiedot">täältä</Link>.</li>
               <li>Maksutapana käteinen tai MobilePay.</li>
@@ -51,7 +51,7 @@ const PricesPage = ({location}) => {
             </React.Fragment>
             :
             <React.Fragment>
-              <li>Accommodation prices include bed linens, towels, and WiFi.</li>
+              <li>Accommodation prices include bed linens, towels, WiFi, and coffee & tea.</li>
               <li>Supplies for making your own breakfast:  7€/person.</li>
               <li>Contact us to book your accommodation in Porvoo. The contact details can be seen <Link to="/en/contact">here</Link>.</li>
               <li>Payment with cash or MobilePay.</li>
