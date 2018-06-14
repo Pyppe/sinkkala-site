@@ -16,7 +16,7 @@ const navigation = {
     'Yhteystiedot    ' : '/fi/yhteystiedot/',
   },
   en: {
-    'Frontpage'        : '/en/frontpage/',
+    'Front page'       : '/en/frontpage/',
     'Prices'           : '/en/prices/',
     'Rooms and images' : '/en/rooms-and-images/',
     'Contact'          : '/en/contact/',

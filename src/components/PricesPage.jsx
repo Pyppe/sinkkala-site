@@ -5,11 +5,11 @@ import {extractLanguageFromLocation} from '../utils'
 const i18n = {
   roomForTwo: {
     fi: '2 hengen huone',
-    en: 'Room for 2 persons'
+    en: 'Double room'
   },
   roomForOne: {
     fi: '1 hengen huone',
-    en: 'Room for one person',
+    en: 'Single room',
   },
   roomForFamily: {
     fi: 'Perhehuone',

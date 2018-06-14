@@ -109,8 +109,7 @@ const i18n = {
 const ImageThumbnails = ({images, onClickImage, language}) => (
   <div className="row thumbnails">
     {_.map(images, (img) => {
-      const caption = determineImageCaption(img, language);
-      const colSize = (_.size(images) % 4 === 0) ? 3 : 4;
+      const colSize = (_.size(images) % 4 === 0 || _.size(images) > 6) ? 3 : 4;
       return (
         <div className={`col-lg-${colSize} col-sm-6`} key={img.src}>
           <a onClick={() => onClickImage(img.index)}>
@@ -118,8 +117,8 @@ const ImageThumbnails = ({images, onClickImage, language}) => (
               sizes={img}
               imgStyle={{transition: null}}
             />
-            {caption &&
-              <div className="caption">{caption}</div>
+            {img.caption &&
+              <div className="caption">{img.caption}</div>
             }
           </a>
         </div>
@@ -128,44 +127,50 @@ const ImageThumbnails = ({images, onClickImage, language}) => (
   </div>
 );
 
-const determineImageCaption = ({src}, language) => {
-  const name = _.head(_.last(src.split('/')).split('-'));
-  const names = {
-    'sinkkala.A.01': ['Alakerran pikkukamari', 'Little chamber downstairs'],
-    'sinkkala.A.02': ['Alakerran isokamari', 'Larger bedroom downstairs'],
-    'sinkkala.B.01': ['Yläkerran peräkamari', 'Back chamber upstairs'],
-    'sinkkala.B.02': ['Yläkerran tyttöjen huone', 'The girls’ chamber upstairs'],
-    'sinkkala.B.03': ['Yläkerran oleskelutila', 'Common lounge area upstairs'],
-    'sinkkala.C.01': ['Keittiö', 'Kitchen'],
-    'sinkkala.C.02': ['Tupa', 'Cabin'],
-    'sinkkala.C.03': ['Veranta', 'Sunny porch'],
-    'sinkkala.C.04': ['Alakerran vessa', 'Bathroom downstairs'],
-    'sinkkala.C.05': ['Kellarin vessa', 'Bathroom in the basement'],
-    'sinkkala.D.01': ['Sinkkalan iso piha', `Sinkkala's spacious yard`],
-    'sinkkala.D.02': ['Hiekkalaatikko leikkejä varten', 'Sandbox for children to play'],
-    'sinkkala.D.03': ['Ulkosauna', 'Outside sauna'],
-    'sinkkala.D.04': ['Saunan pukuhuone', 'Dressing room'],
-  };
-  return _.get(_.get(names, name, []), language === 'fi' ? 0 : 1);
+const IMAGE_CAPTIONS = {
+  // A
+  'A.alakerran_pikkukamari': ['Alakerran pikkukamari', 'Little chamber downstairs'],
+  'A.alakerran_isokamari': ['Alakerran isokamari', 'Larger bedroom downstairs'],
+  // B
+  'B.ylakerran_perakamari': ['Yläkerran peräkamari', 'Back chamber upstairs'],
+  'B.ylakerran_tyttojen_huone': ['Yläkerran tyttöjen huone', 'The girls’ chamber upstairs'],
+  'B.ylakerran_oleskelutila': ['Yläkerran oleskelutila', 'Common lounge area upstairs'],
+  // C
+  'C.keittio': ['Keittiö', 'Kitchen'],
+  'C.tupa': ['Tupa', 'Cabin'],
+  'C.veranta': ['Veranta', 'Sunny porch'],
+  'C.alakerran_vessa': ['Alakerran vessa', 'Bathroom downstairs'],
+  'C.kellarin_vessa': ['Kellarin vessa', 'Bathroom in the basement'],
+  // D
+  'D.etupiha': ['Sinkkalan iso piha', `Sinkkala's spacious yard`],
+  'D.grilli': ['Grillipaikka', `Outside grill`],
+  'D.takapiha': ['Sinkkalan takapiha', `Sinkkala's backyard`],
+  'D.hiekkalaatikko': ['Hiekkalaatikko leikkejä varten', 'Sandbox for children to play'],
+  'D.ulkosauna': ['Ulkosauna', 'Outside sauna'],
+  'D.sauna': ['Ulkosauna', 'Outside sauna'],
+  'D.saunan_pukuhuone': ['Saunan pukuhuone', 'Dressing room'],
 };
 
 class RoomsAndImagesPage extends React.Component {
   constructor(props) {
     super(props);
+    const language = extractLanguageFromLocation(props.location);
     const images = _.map(
       _.sortBy(
         _.map(this.props.data.photos.edges, n => {
           const img = n.node.childImageSharp.fullSizes;
-          const group = _.last(img.src.split('/')).split('.')[1];
-          return {
-            ...img,
-            group
-          };
+          const name = _.last(img.src.split('/'));
+          const group = name.split('.')[0];
+          const id = name.split('-')[0];
+          const index = _.indexOf(_.keys(IMAGE_CAPTIONS), id);
+          const caption = _.get(_.get(IMAGE_CAPTIONS, id, []), language === 'fi' ? 0 : 1);
+          return { ...img, group, index, caption };
         }),
-        'src'
+        'index'
       ),
       (x, index) => ({...x, index})
     );
+    console.log(images);
     this.state = {
       isLightboxOpen: false,
       currentImageIndex: 0,
@@ -201,7 +206,6 @@ class RoomsAndImagesPage extends React.Component {
             _.map(images, img => ({
               ...img,
               srcSet: _.map(img.srcSet.split(','), _.trim),
-              caption: determineImageCaption(img, language),
             }))
           }
           isOpen={this.state.isLightboxOpen}

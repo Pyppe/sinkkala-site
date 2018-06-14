@@ -40,10 +40,10 @@ const Finnish = () => (
 const English = () => (
   <React.Fragment>
     <p>
-      Sinkkala is a cottage with good ol’ granny’s atmosphere, located at the green countryside of Porvoo.
-      The large yard is overshadowed by the aged trees, and surrounded by the old household constructions creating its own peaceful setting.
+      Sinkkala is a cottage with good ol’ granny’s atmosphere, located in the green countryside of Porvoo.
+      The large yard is shaded by aged trees, and surrounded by the old household constructions creating its own peaceful setting.
       The neighbors are close, but far enough for privacy.
-      The garden is relaxing, and spacious for children to play and run around.
+      The garden is relaxing and spacious for children to play and run around.
     </p>
     <h2>Cosy accommodation in Porvoo</h2>
     <p>
