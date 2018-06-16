@@ -25,6 +25,8 @@ body {
   @include media-breakpoint-down(sm) {
     .navbar-brand {
       line-height: 0;
+      font-size: 1.5rem;
+      padding-bottom: 0.75rem;
     }
     .navbar-collapse {
       background: rgba(black, 0.5);
