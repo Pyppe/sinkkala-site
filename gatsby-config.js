@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Sinkkala Bed and Breakfast',
-    baseUrl: 'http://uusi.sinkkala.fi',
+    baseUrl: 'https://www.sinkkala.fi',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
