@@ -1,5 +1,6 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
+import Layout from "./layout"
 import {extractLanguageFromLocation} from '../utils'
 
 const Finnish = () => (
@@ -65,10 +66,11 @@ const English = () => (
   </React.Fragment>
 );
 
-const FrontPage = ({location}) => {
+const FrontPage = (props) => {
+  const {location} = props
   const language = extractLanguageFromLocation(location);
   return (
-    <div>
+    <Layout {...props}>
       {language === 'fi' ? <Finnish/> : <English/>}
       <div className="row">
         <div className="col-md-1"/>
@@ -86,7 +88,7 @@ const FrontPage = ({location}) => {
         </div>
         <div className="col-md-1"/>
       </div>
-    </div>
+    </Layout>
   );
 }
 

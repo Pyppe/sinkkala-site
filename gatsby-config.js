@@ -1,8 +1,5 @@
 module.exports = {
-  siteMetadata: {
-    title: 'Sinkkala Bed and Breakfast',
-    baseUrl: 'https://www.sinkkala.fi',
-  },
+  siteMetadata: {},
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
@@ -52,6 +49,5 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-react-next', // For React 16 in Gatsby v1
   ],
 }

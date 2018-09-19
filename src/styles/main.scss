@@ -76,7 +76,7 @@ body {
       margin-bottom: 20px;
     }
   }
-  a {
+  .clickable {
     position: relative;
     cursor: pointer;
     display: block;
@@ -88,9 +88,9 @@ body {
   }
   .caption {
     position: absolute;
-    bottom: 1px;
-    left: 1px;
-    right: 1px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
     background: rgba(black, 0.6);
     padding: 5px;
     color: white;

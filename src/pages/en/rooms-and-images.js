@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import RoomsAndImagesPage from '../../components/RoomsAndImagesPage'
 
 export default (props) => <RoomsAndImagesPage {...props} />;

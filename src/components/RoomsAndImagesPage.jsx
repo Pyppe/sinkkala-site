@@ -1,6 +1,9 @@
 import React from 'react'
+import _ from 'lodash'
+import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import Lightbox from 'react-images'
+import Layout from "./layout"
 import {extractLanguageFromLocation} from '../utils'
 
 const i18n = {
@@ -106,13 +109,13 @@ const i18n = {
   }
 };
 
-const ImageThumbnails = ({images, onClickImage, language}) => (
+const ImageThumbnails = ({images, onClickImage}) => (
   <div className="row thumbnails">
     {_.map(images, (img) => {
       const colSize = (_.size(images) % 4 === 0 || _.size(images) > 6) ? 3 : 4;
       return (
         <div className={`col-lg-${colSize} col-sm-6`} key={img.src}>
-          <a onClick={() => onClickImage(img.index)}>
+          <div className="clickable" onClick={() => onClickImage(img.index)}>
             <Image
               sizes={img}
               imgStyle={{transition: null}}
@@ -120,7 +123,7 @@ const ImageThumbnails = ({images, onClickImage, language}) => (
             {img.caption &&
               <div className="caption">{img.caption}</div>
             }
-          </a>
+          </div>
         </div>
       );
     })}
@@ -154,6 +157,7 @@ const IMAGE_CAPTIONS = {
 class RoomsAndImagesPage extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props)
     const language = extractLanguageFromLocation(props.location);
     const images = _.map(
       _.sortBy(
@@ -189,13 +193,12 @@ class RoomsAndImagesPage extends React.Component {
           onClickImage={currentImageIndex => {
             this.setState({currentImageIndex, isLightboxOpen: true});
           }}
-          language={language}
         />
       </React.Fragment>
     );
 
     return (
-      <React.Fragment>
+      <Layout {...this.props}>
         <BlockOfTextAndImages group='A' />
         <BlockOfTextAndImages group='B' />
         <BlockOfTextAndImages group='C' />
@@ -223,7 +226,7 @@ class RoomsAndImagesPage extends React.Component {
           imageCountSeparator=' / '
           showThumbnails
         />
-      </React.Fragment>
+      </Layout>
     );
   }
 }
@@ -232,17 +235,13 @@ class RoomsAndImagesPage extends React.Component {
 export default RoomsAndImagesPage;
 
 export const sinkkalaPhotosFragment = graphql`
-  fragment sinkkalaPhotos on RootQueryType {
-    photos: allFile(filter: { id: { regex: "/photos/" } }) {
+  fragment sinkkalaPhotos on Query {
+    photos: allFile(filter: { absolutePath: { regex: "/photos/" } }) {
       edges {
         node {
-          sourceInstanceName
           childImageSharp {
-#            thumbnailSizes: sizes(maxWidth: 300) {
-#              ...GatsbyImageSharpSizes
-#            }
-            fullSizes: sizes(maxWidth: 1920) {
-              ...GatsbyImageSharpSizes
+            fullSizes: fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

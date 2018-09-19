@@ -1,5 +1,6 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import _ from 'lodash'
+import {Link} from 'gatsby'
 import Flag from './Flag'
 
 const PageLink = ({to, children, active}) => (
@@ -31,7 +32,7 @@ const isSamePage = (a, b) => {
 const determineLinkForAnotherLanguage = (language, currentPath, currentLanguage) => {
   const paths = _.values(navigation[currentLanguage]);
   const idx = _.findIndex(paths, (path, idx) => {
-    return idx === 0 && path === currentPath || _.startsWith(path, currentPath);
+    return (idx === 0 && path === currentPath) || _.startsWith(path, currentPath);
   });
   return _.values(navigation[language])[idx];
 };
@@ -60,13 +61,8 @@ class Navbar extends React.Component {
     super(props);
     this.state = {isOpen: false};
   }
-  componentWillReceiveProps(newProps) {
-    if (newProps.currentPath !== this.props.currentPath) {
-      this.setState({isOpen: false});
-    }
-  }
   render() {
-    const { siteTitle, language, currentPath } = this.props;
+    const { language, currentPath } = this.props;
     const {isOpen} = this.state;
     return (
       <nav id="topbar" className="navbar navbar-expand-md navbar-dark">

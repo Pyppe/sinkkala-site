@@ -1,6 +1,6 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import {emailAddress, extractLanguageFromLocation, facebookPageUrl, streetAddress} from '../utils'
+import Layout from "./layout"
+import {extractLanguageFromLocation, facebookPageUrl, streetAddress} from '../utils'
 import EmailAddressLink from './EmailAddressLink'
 import ExtLink from './ExtLink';
 import PhoneNumberLink from './PhoneNumberLink'
@@ -30,50 +30,52 @@ const i18n = {
   },
 };
 
-const ContactPage = ({location}) => {
-  const language = extractLanguageFromLocation(location);
+const ContactPage = (props) => {
+  const language = extractLanguageFromLocation(props.location);
 
   return (
-    <div className="row">
-      <div className="col-lg-6">
-        <blockquote className="blockquote">
-          <p>{i18n.intro[language]}</p>
-        </blockquote>
-        <table className="table table-striped">
-          <tbody>
-            <tr>
-              <th>{i18n.phone[language]}</th>
-              <td><PhoneNumberLink/></td>
-            </tr>
-            <tr>
-              <th>{i18n.email[language]}</th>
-              <td><EmailAddressLink /></td>
-            </tr>
-            <tr>
-              <th>{i18n.address[language]}</th>
-              <td>{streetAddress}</td>
-            </tr>
-            <tr>
-              <th>{i18n.socialMedia[language]}</th>
-              <td>
-                <ExtLink href={facebookPageUrl}>
-                  Facebook <i className="fa fa-facebook-square" />
-                </ExtLink>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <Layout {...props}>
+      <div className="row">
+        <div className="col-lg-6">
+          <blockquote className="blockquote">
+            <p>{i18n.intro[language]}</p>
+          </blockquote>
+          <table className="table table-striped">
+            <tbody>
+              <tr>
+                <th>{i18n.phone[language]}</th>
+                <td><PhoneNumberLink/></td>
+              </tr>
+              <tr>
+                <th>{i18n.email[language]}</th>
+                <td><EmailAddressLink /></td>
+              </tr>
+              <tr>
+                <th>{i18n.address[language]}</th>
+                <td>{streetAddress}</td>
+              </tr>
+              <tr>
+                <th>{i18n.socialMedia[language]}</th>
+                <td>
+                  <ExtLink href={facebookPageUrl}>
+                    Facebook <i className="fa fa-facebook-square" />
+                  </ExtLink>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="col-lg-6">
+          <iframe
+            className="bordered"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d125868.86644490593!2d25.45051031553027!3d60.46665717337106!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x12f3173399a03240!2sBed+and+Breakfast+Sinkkala!5e0!3m2!1sen!2sfi!4v1527352794481"
+            title="Sinkkala in Google Maps"
+            allowFullScreen
+            style={{height: 400, width: '100%'}}
+          />
+        </div>
       </div>
-      <div className="col-lg-6">
-        <iframe
-          className="bordered"
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d125868.86644490593!2d25.45051031553027!3d60.46665717337106!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x12f3173399a03240!2sBed+and+Breakfast+Sinkkala!5e0!3m2!1sen!2sfi!4v1527352794481"
-          title="Sinkkala in Google Maps"
-          allowFullScreen
-          style={{height: 400, width: '100%'}}
-        />
-      </div>
-    </div>
+    </Layout>
   );
 };
 

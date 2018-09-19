@@ -23,4 +23,9 @@ npm run develop
 
 ## Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+```bash
+rm -rf ./.cache/
+rm -rf ./public/
+gatsby build
+rsync -hrvz --delete --checksum --stats public/ $HOST:$HOSTDIR
+```
