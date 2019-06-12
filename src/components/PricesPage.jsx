@@ -15,7 +15,11 @@ const i18n = {
   roomForFamily: {
     fi: 'Perhehuone',
     en: 'Family room',
-  }
+  },
+  startingAt: price => ({
+    fi: `alkaen ${price} €`,
+    en: `starting at ${price} €`,
+  }),
 };
 
 const PricesPage = (props) => {
@@ -28,15 +32,15 @@ const PricesPage = (props) => {
             <tbody>
               <tr>
                 <th>{i18n.roomForTwo[language]}</th>
-                <td>65 €</td>
+                <td>{i18n.startingAt(65)[language]}</td>
               </tr>
               <tr>
                 <th>{i18n.roomForOne[language]}</th>
-                <td>45 €</td>
+                <td>{i18n.startingAt(45)[language]}</td>
               </tr>
               <tr>
                 <th>{i18n.roomForFamily[language]}</th>
-                <td>85 - 95 €</td>
+                <td>{i18n.startingAt(85)[language]}</td>
               </tr>
             </tbody>
           </table>

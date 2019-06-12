@@ -19,9 +19,9 @@
     "gatsby-source-filesystem": "2.0.1",
     "gatsby-transformer-sharp": "2.1.1",
     "lodash": "4.17.11",
-    "node-sass": "^4.9.3",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "node-sass": "4.9.3",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
     "react-helmet": "5.2.0",
     "react-images": "0.5.17",
     "s3-deploy": "1.0.0"
