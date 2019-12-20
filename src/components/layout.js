@@ -12,22 +12,17 @@ import cover from '../images/cover.jpg'
 
 const Layout = (props) => {
   const { children, location } = props;
-  const siteMetadata = {
-    title: 'Sinkkala Bed and Breakfast',
-    baseUrl: 'https://www.sinkkala.fi',
-  }
   const language = extractLanguageFromLocation(location);
   return (
     <React.Fragment>
       <Helmet htmlAttributes={{lang: language}}>
-        <title>{siteMetadata.title}</title>
+        <title>Sinkkala cottage</title>
         <meta name="description" content="Bed and Breakfast, near Porvoo" />
         <meta name="keywords" content="porvoo, sinkkala, bed and breakfast, accommodation, hostel, majoitus, mökki" />
-        <meta name="og:image" content={siteMetadata.baseUrl + cover} />
+        <meta name="og:image" content={'https://www.sinkkala.fi' + cover} />
       </Helmet>
-      <Jumbotron title='Sinkkala' />
+      <Jumbotron language={language} />
       <Navbar
-        siteTitle={siteMetadata.title}
         language={language}
         currentPath={location.pathname}
       />

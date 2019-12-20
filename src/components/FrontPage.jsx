@@ -14,15 +14,15 @@ const Finnish = () => (
     </p>
     <h2>Mummola-majoitusta Porvoossa</h2>
     <p>
-      Porvoossa sijaitseva Sinkkala tarjoaa kodikasta majoitusta joko aamiaisen kera tai ilman.
+      Sinkkala tarjoaa kodikasta majoitusta Porvoossa.
       Makuuhuoneita on ainoastaan neljä, joten talo sopii mainiosti rauhaa rakastaville ja kodikkaasta majoituksesta nauttiville vieraille.
       Olette tervetulleita viipymään Sinkkalassa joko yhden tai useamman yön tai jopa viikon.
-      Vuoteet on sijattu valmiiksi ja halutessanne aamiaistarvikkeet löytyvät keittiöstä,
-      jotta voitte nauttia aamiaisen silloin, kun teille parhaiten sopii.
     </p>
     <p>
-      Talon voi vuokrata myös kokonaan omaan käyttöön mökkinä joko yhdeksi yöksi, viikoksi tai pidemmäksikin aikaa.
-      Sinkkala on käytettävissä ympäri vuoden.
+      {/* TODO: THIS IN ENGLISH */}
+      Talo on kokonaisuudessaan käytettävissänne ja makuuhuoneisiin mahtuu yöpymään isompikin seurue.
+      Liinavaatteet ja pyyhkeet voitte tuoda tullessanne tai erillisestä maksusta vuoteet on sijattu valmiiksi.
+      Myöskään loppusiivouksesta ei tarvitse välttämättä huolehtia, vaan lisämaksusta teemme senkin puolestanne.
     </p>
     <p>
       Sinkkala sijaitsee Uudellamaalla Porvoossa, noin 10 km päässä Porvoon keskustasta.
@@ -48,14 +48,9 @@ const English = () => (
     </p>
     <h2>Cosy accommodation in Porvoo</h2>
     <p>
-      Sinkkala, located in Porvoo, offers cozy accommodation with or without breakfast.
+      Sinkkala offers cozy accommodation in Porvoo.
       There are only four bedrooms, so the house is ideal for those who value peace and quiet.
       You are most welcome to stay in Sinkkala either for just one or two days, or even weeks.
-      Beds are made, and if you wish, breakfast items can be found in the kitchen at your pleasure.
-    </p>
-    <p>
-      The whole house can also be rented for your own use as a cottage for either one night, one week or even longer.
-      Sinkkala is open all year round.
     </p>
     <p>
       Sinkkala is located in Uusimaa, Porvoo, about 10 km from the center of Porvoo.

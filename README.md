@@ -21,6 +21,8 @@ cd gatsby-example-site
 npm run develop
 ```
 
+*NOTE:* For now, use node version `10.x`
+
 ## Deploy
 
 ```bash
