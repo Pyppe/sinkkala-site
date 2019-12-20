@@ -23,6 +23,16 @@ npm run develop
 
 *NOTE:* For now, use node version `10.x`
 
+## Imagemagick
+
+Resize photos to aspect ratio of `2000x1335`:
+
+```bash
+convert orig.jpg -resize '2000x1335^' -gravity center -crop 2000x1335+0+0 +repage resized.jpg
+convert orig.jpg -resize '1600x1068^' -gravity center -crop 1600x1068+0+0 +repage resized.jpg
+```
+
+
 ## Deploy
 
 ```bash
