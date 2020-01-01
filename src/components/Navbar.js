@@ -12,13 +12,11 @@ const PageLink = ({to, children, active}) => (
 const navigation = {
   fi: {
     'Etusivu'          : '/',
-    'Hinnasto'         : '/fi/hinnasto/',
     'Huoneet ja kuvat' : '/fi/huoneet-ja-kuvat/',
     'Yhteystiedot    ' : '/fi/yhteystiedot/',
   },
   en: {
     'Front page'       : '/en/frontpage/',
-    'Prices'           : '/en/prices/',
     'Rooms and images' : '/en/rooms-and-images/',
     'Contact'          : '/en/contact/',
   }

@@ -7,10 +7,33 @@ import PhoneNumberLink from './PhoneNumberLink'
 
 const i18n = {
   intro: {
-    fi: `Varaa unohtumaton aamiaismajoitus ottamalla meihin yhteyttä.
-         Maalaistalon yhteystiedot löydät alla olevasta taulukosta.`,
-    en: `The contact information of the Bed & Breakfast Sinkkala is available in the table below.
-         Please feel free to contact us to book your accommodation in Porvoo!`
+    fi: (
+      <>
+        <p>
+          Hinnat ja varaustilanteen löydät osoitteesta{' '}
+          <ExtLink href="https://www.nettimokki.com/porvoo/9597">
+            Nettimökki.com <i className="fa fa-external-link-square" />
+          </ExtLink>
+        </p>
+        <p>
+          Varaa unohtumaton majoitus ottamalla meihin yhteyttä.
+          Maalaistalon yhteystiedot löydät alla olevasta taulukosta.
+        </p>
+      </>
+    ),
+    en: (
+      <>
+        <p>
+          Prices and reservations can be found in{' '}
+          <ExtLink href="https://www.nettimokki.com/en/porvoo/9597" target="_blank">
+            Nettimokki.com <i className="fa fa-external-link-square" />
+          </ExtLink>
+        </p>
+        <p>
+          The contact information of Sinkkala cottage is available below.
+        </p>
+      </>
+    )
   },
   phone: {
     fi: 'Puhelinnumero',
@@ -37,9 +60,7 @@ const ContactPage = (props) => {
     <Layout {...props}>
       <div className="row">
         <div className="col-lg-6">
-          <blockquote className="blockquote">
-            <p>{i18n.intro[language]}</p>
-          </blockquote>
+          {i18n.intro[language]}
           <table className="table table-striped">
             <tbody>
               <tr>
