@@ -10,17 +10,19 @@ const i18n = {
   textA: {
     fi: `
       <p>
-        Sinkkalassa on ainoastaan neljä makuuhuonetta, joten talossa vallitsee rauhallinen ja kodikas tunnelma.
-        Jokainen huone kertoo esineillään omaa tarinaansa perheen historiasta. Moni esineistä on matkannut
-        pitkän ja vaivalloisenkin matkan päätyäkseen lopulta Sinkkalaan, Porvooseen. Juuri nämä esineet luovat
-        taloon oman tunnelmansa.
+        Sinkkalassa on neljä makuuhuonetta, joten taloon mahtuu majoittumaan suurempikin seurue. Silti
+        jokaiselle on omaa rauhaa ja yksityisyyttä niin halutessaan. Jokainen huone kertoo esineillään omaa
+        tarinaansa perheen historiasta. Moni esineistä on matkannut pitkän ja vaivalloisenkin matkan
+        päätyäkseen lopulta Sinkkalaan, Porvooseen. Juuri nämä esineet luovat taloon oman tunnelmansa.
+        
       </p>
-      <p>Makuuhuoneista kaksi sijaitsee alakerrassa ja kaksi yläkerrassa.</p>
+      <p>
+        Makuuhuoneista kaksi sijaitsee alakerrassa ja kaksi yläkerrassa.
+      </p>
       <h4>Alakerran kamarit</h4>
       <p>
-        Alakerran Pikkukamarissa olevat mummon morsiuspiironki, vanhat valokuvat, seinäkello ja käytössä oleva
-        uuni luovat entisaikojen tunnelmaa.
-        Isokamarissa on kahden erillisen vuoteen lisäksi myös 120 cm leveä
+        Alakerran Pikkukamarissa olevat mummon morsiuspiironki, vanhat valokuvat, seinäkello ja uuni
+        luovat entisaikojen tunnelmaa. Isokamarissa on kahden erillisen vuoteen lisäksi myös 120 cm leveä
         vuode, joten huoneeseen mahtuu esimerkiksi nelihenkinen perhe.
       </p>
     `,
@@ -45,10 +47,10 @@ const i18n = {
     fi: `
       <h4>Yläkerta</h4>
       <p>
-        Yläkerran Peräkamarin seiniä koristavat talon entisen emännän hiihtopalkintoina saamat taulut ja peili.
-        Tyttöjen huone on suuri 24 m² huone, missä kahden vuoteen lisäksi on sijattavissa vuoteet lapsille
-        vuodesohvasta. Yhteisenä oleskelutilana on yläkerrassa aula, missä voi lueskella tai katsella tv:tä
-        puuseppäisännän rakentamissa nojatuoleissa.
+        Yläkerran Peräkamarin seiniä koristavat talon entisen emännän hiihtopalkintoina saamat taulut ja
+        peili. Tyttöjen huone on suuri 24 m² huone, missä kahden vuoteen lisäksi on sijattavissa vuoteet
+        lapsille vuodesohvasta. Yhteisenä oleskelutilana on yläkerrassa aula, missä voi lueskella tai katsella
+        tv:tä puuseppäisännän rakentamissa nojatuoleissa.
       </p>
     `,
     en: `
@@ -66,11 +68,10 @@ const i18n = {
     fi: `
       <h4>Alakerran keittiö ja veranta</h4>
       <p>
-        Keittiö on kaikkien majoittujien käytössä ja sieltä löytyvät tarvittavat välineet omatoimiseen ruuanlaittoon.
-        Halutessanne voitte tilata aamiaistarvikkeet valmiiksi ja nauttia ne, silloin kun teille parhaiten sopii.
-        Tuvan ison pöydän ääreen mahtuu ruokailemaan suurempikin seurue.
-        Valoisan verannan pöydän ääressä aamiainen maistuu hyvältä seuratessa elämää pihapuissa
-        ja ympäröivillä pelloilla.
+        Keittiö on remontoitu syksyllä 2019 talon henkeä kunnioittaen. Sieltä löytyvät tarvittavat välineet
+        ruuanlaittoon ja tarjoiluun. Astioita ja ruokailuvälineitä löytyy vähintään 15 henkilölle. Tuvan ison
+        pöydän ääreen mahtuu ruokailemaan suurempikin seurue. Valoisan verannan pöydän ääressä
+        aamiainen maistuu hyvältä seuratessa elämää pihapuissa ja ympäröivillä pelloilla.
       </p>
     `,
     en: `
@@ -88,10 +89,11 @@ const i18n = {
     fi: `
       <h4>Piha ja sauna</h4>
       <p>
-        Piha on iso, mutta turvallinen. Ikivanhojen puiden varjossa voi istuskella grillaten tai muuten vaan
-        nautiskellen maalaismaisemasta. Pihapiirissä sijaitseva perinteinen, vaatimaton sauna lämpiää
-        sopimuksen mukaan. Asukkaiden käytössä on myös polkupyöriä ja pihaleikkivälineitä. Talvisin
-        yhdyslatu kulkee kylän hiihtoreiteille melkeinpä rappusten edestä, tietenkin lumitilanteesta riippuen.
+        Piha on iso, mutta turvallinen. Ikivanhojen, todella suurten puiden varjossa voi istuskella grillaten
+        tai muuten vaan nautiskellen maalaismaisemasta. Pihapiirissä sijaitseva perinteinen, vaatimaton
+        maalaissauna antaa makoisat löylyt. Asukkaiden käytössä on myös polkupyöriä ja
+        pihaleikkivälineitä. Talvisin yhdyslatu kulkee kylän hiihtoreiteille melkeinpä rappusten edestä,
+        tietenkin lumitilanteesta riippuen.
       </p>
     `,
     en: `

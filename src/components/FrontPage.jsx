@@ -6,23 +6,24 @@ import {extractLanguageFromLocation} from '../utils'
 const Finnish = () => (
   <React.Fragment>
     <p>
-      Sinkkala on mummola-tunnelmaa huokuva maalaistalo keskellä vehreää porvoolaista maalaismaisemaa.
-      Laajaa pihapiiriä varjostavat ikivanhat puut.
-      Pihaa reunustavat talousrakennukset luovat sille oman rauhoitetun maailmansa.
-      Naapurit sijaitsevat lähellä, mutta silti lähes näkymättömissä.
-      Lapsille ja lapsenmielisille on pihalla tilaa temmeltää.
+      Sinkkala on mummola-tunnelmaa huokuva maalaistalo keskellä vehreää porvoolaista
+      maalaismaisemaa. Laajaa pihapiiriä varjostavat ikivanhat puut. Pihaa reunustavat
+      talousrakennukset luovat sille oman rauhoitetun maailmansa. Naapurit sijaitsevat lähellä, mutta silti
+      lähes näkymättömissä. Lapsille ja lapsenmielisille on pihalla tilaa temmeltää.
     </p>
     <h2>Mummola-majoitusta Porvoossa</h2>
     <p>
-      Sinkkala tarjoaa kodikasta majoitusta Porvoossa.
-      Makuuhuoneita on ainoastaan neljä, joten talo sopii mainiosti rauhaa rakastaville ja kodikkaasta majoituksesta nauttiville vieraille.
-      Olette tervetulleita viipymään Sinkkalassa joko yhden tai useamman yön tai jopa viikon.
+      Sinkkala tarjoaa kodikasta majoitusta Porvoossa. Talo sopii mainiosti rauhaa rakastaville ja
+      kodikkaasta majoituksesta nauttiville vieraille. Olette tervetulleita viipymään Sinkkalassa joko
+      lyhyemmän tai pidemmän ajan, olipa kyseessä sitten työ- tai vapaa-aika.
     </p>
     <p>
       {/* TODO: THIS IN ENGLISH */}
-      Talo on kokonaisuudessaan käytettävissänne ja makuuhuoneisiin mahtuu yöpymään isompikin seurue.
-      Liinavaatteet ja pyyhkeet voitte tuoda tullessanne tai erillisestä maksusta vuoteet on sijattu valmiiksi.
-      Myöskään loppusiivouksesta ei tarvitse välttämättä huolehtia, vaan lisämaksusta teemme senkin puolestanne.
+      Neljään makuuhuoneeseen mahtuu yöpymään isompikin seurue. Liinavaatteet ja pyyhkeet voitte
+      tuoda tullessanne tai erillisestä maksusta vuoteet on sijattu valmiiksi. Myöskään loppusiivouksesta
+      ei tarvitse välttämättä huolehtia, vaan lisämaksusta teemme senkin puolestanne. Mikäli haluatte
+      hemmotella itseänne ja tilata aamupalatarvikkeet valmiiksi odottamaan jääkaappiin, onnistuu sekin
+      sovittaessa.
     </p>
     <p>
       Sinkkala sijaitsee Uudellamaalla Porvoossa, noin 10 km päässä Porvoon keskustasta.
