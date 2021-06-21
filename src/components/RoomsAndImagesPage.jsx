@@ -77,9 +77,7 @@ const i18n = {
     en: `
       <h4>Kitchen downstairs and sunny porch</h4>
       <p>
-        Breakfast items can be found from the kitchen,
-        where all the necessary utensils and tableware are available for preparing a meal.
-        You can order breakfast ingredients to be ready for your convenience.
+        In the kitchen all the necessary utensils and tableware are available for preparing a meal.
         You may enjoy your meal either in the romantic cabin
         — spacious enough to accommodate even a larger family — or at the sunny porch.
       </p>

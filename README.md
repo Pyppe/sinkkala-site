@@ -38,6 +38,6 @@ convert orig.jpg -resize '1600x1068^' -gravity center -crop 1600x1068+0+0 +repag
 ```bash
 rm -rf ./.cache/
 rm -rf ./public/
-gatsby build
+npm run build
 rsync -hrvz --delete --checksum --stats public/ $HOST:$HOSTDIR
 ```

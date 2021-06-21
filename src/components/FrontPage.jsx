@@ -21,9 +21,7 @@ const Finnish = () => (
       {/* TODO: THIS IN ENGLISH */}
       Neljään makuuhuoneeseen mahtuu yöpymään isompikin seurue. Liinavaatteet ja pyyhkeet voitte
       tuoda tullessanne tai erillisestä maksusta vuoteet on sijattu valmiiksi. Myöskään loppusiivouksesta
-      ei tarvitse välttämättä huolehtia, vaan lisämaksusta teemme senkin puolestanne. Mikäli haluatte
-      hemmotella itseänne ja tilata aamupalatarvikkeet valmiiksi odottamaan jääkaappiin, onnistuu sekin
-      sovittaessa.
+      ei tarvitse välttämättä huolehtia, vaan lisämaksusta teemme senkin puolestanne.
     </p>
     <p>
       Sinkkala sijaitsee Uudellamaalla Porvoossa, noin 10 km päässä Porvoon keskustasta.
