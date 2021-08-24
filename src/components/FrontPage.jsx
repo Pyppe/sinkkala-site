@@ -72,10 +72,10 @@ const FrontPage = (props) => {
           <div className="embed-responsive embed-responsive-16by9">
             <iframe
               className="embed-responsive-item bordered"
-              src="https://www.youtube.com/embed/mlXhfW7d96k?rel=0&amp;showinfo=0"
+              src="https://www.youtube.com/embed/GPTjmzDSlL8?rel=0&amp;showinfo=0"
               frameBorder="0"
               allow="autoplay; encrypted-media"
-              title="Sinkkala BB"
+              title="Sinkkala"
               allowFullScreen
             />
           </div>
