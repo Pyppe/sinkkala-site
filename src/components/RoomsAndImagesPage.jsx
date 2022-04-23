@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 import Lightbox from 'react-images'
 import Layout from "./layout"
 import {extractLanguageFromLocation} from '../utils'
@@ -116,9 +116,9 @@ const ImageThumbnails = ({images, onClickImage}) => (
       return (
         <div className={`col-lg-${colSize} col-sm-6`} key={img.src}>
           <div className="clickable" onClick={() => onClickImage(img.index)}>
-            <Image
-              sizes={img}
-              imgStyle={{transition: null}}
+            <GatsbyImage
+              image={img}
+              //imgStyle={{transition: null}}
             />
             {img.caption &&
               <div className="caption">{img.caption}</div>
@@ -162,13 +162,14 @@ class RoomsAndImagesPage extends React.Component {
     const images = _.map(
       _.sortBy(
         _.map(this.props.data.photos.edges, n => {
-          const img = n.node.childImageSharp.fullSizes;
-          const name = _.last(img.src.split('/'));
+          const img = n.node.childImageSharp.gatsbyImageData
+          const { src, srcSet } = img.images.fallback
+          const name = _.last(src.split('/'));
           const group = name.split('.')[0];
-          const id = name.split('-')[0];
+          const id = name.replaceAll(/\.\w{3,4}$/gi, '')
           const index = _.indexOf(_.keys(IMAGE_CAPTIONS), id);
           const caption = _.get(_.get(IMAGE_CAPTIONS, id, []), language === 'fi' ? 0 : 1);
-          return { ...img, group, index, caption };
+          return { ...img, src, srcSet, group, index, caption };
         }),
         'index'
       ),
@@ -240,9 +241,7 @@ export const sinkkalaPhotosFragment = graphql`
       edges {
         node {
           childImageSharp {
-            fullSizes: fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }

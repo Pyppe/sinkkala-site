@@ -6,6 +6,6 @@ export const extractLanguageFromLocation = (location) => {
 };
 
 export const emailAddress = 'sinkkala@gmail.com';
-export const phoneNumber = '+358 40 821 7021';
+export const phoneNumber = '+358 40 5834891';
 export const streetAddress = 'Sinkkalantie 29, 06500 Porvoo';
 export const facebookPageUrl = 'https://www.facebook.com/Sinkkala-Bed-Breakfast-458129604293038/';
