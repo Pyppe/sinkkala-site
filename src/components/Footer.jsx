@@ -1,7 +1,8 @@
 import React from 'react'
 import PhoneNumberLink from './PhoneNumberLink';
-import { streetAddress, facebookPageUrl } from '../utils';
+import { facebookPageUrl } from '../utils';
 import EmailAddressLink from './EmailAddressLink';
+import StreetAddressLink from './StreetAddressLink';
 import ExtLink from './ExtLink';
 
 const Entry = ({icon, children}) => (
@@ -12,7 +13,7 @@ const Entry = ({icon, children}) => (
 
 const Footer = ({ code, active }) => (
   <div className="container footer">
-    <Entry icon="fa-map-marker">{streetAddress}</Entry>
+    <Entry icon="fa-map-marker"><StreetAddressLink /></Entry>
     <Entry icon="fa-phone"><PhoneNumberLink/></Entry>
     <Entry icon="fa-envelope"><EmailAddressLink/></Entry>
     <Entry icon="fa-facebook-square"><ExtLink href={facebookPageUrl}>Facebook</ExtLink></Entry>

@@ -1,9 +1,10 @@
 import React from 'react'
 import Layout from "./layout"
-import {extractLanguageFromLocation, facebookPageUrl, streetAddress} from '../utils'
+import {extractLanguageFromLocation, facebookPageUrl} from '../utils'
 import EmailAddressLink from './EmailAddressLink'
 import ExtLink from './ExtLink';
 import PhoneNumberLink from './PhoneNumberLink'
+import StreetAddressLink from './StreetAddressLink';
 
 const i18n = {
   intro: {
@@ -73,7 +74,7 @@ const ContactPage = (props) => {
               </tr>
               <tr>
                 <th>{i18n.address[language]}</th>
-                <td>{streetAddress}</td>
+                <td><StreetAddressLink /></td>
               </tr>
               <tr>
                 <th>{i18n.socialMedia[language]}</th>
